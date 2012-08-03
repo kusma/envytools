@@ -29,7 +29,35 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 	</reg32>
 </domain>
 
+<enum name="index_mode" inline="yes">
+	<value value="0" name="NONE" />
+	<value value="1" name="UIN8" />
+	<value value="2" name="UIN16" />
+</enum>
+
+<enum name="primitive_type" inline="yes">
+	<value value="0" name="POINTS" />
+	<value value="1" name="LINES" />
+	<value value="2" name="LINE_LOOP" />
+	<value value="3" name="LINE_STRIP" />
+	<value value="4" name="TRIANGLES" />
+	<value value="5" name="TRIANGLE_STRIP" />
+	<value value="6" name="TRIANGLE_FAN" />
+</enum>
+
 <domain name="TGR3D" width="32">
+	<reg32 offset="0x122" name="DRAW_PARAMS">
+		<!-- bits 30..31 unknown, usually both set? -->
+		<bitfield name="INDEX_MODE" low="28" high="29" type="index_mode" />
+		<!-- bit 27 unknown, usually set? -->
+		<bitfield name="PRIMITIVE_TYPE" low="24" high="26" type="primitive_type" />
+		<bitfield name="FIRST" low="0" high="23" type="uint" />
+	</reg32>
+	<reg32 offset="0x123" name="DRAW_PRIMITIVES">
+		<bitfield name="INDEX_COUNT" low="20" high="31" type="uint" />
+		<bitfield name="OFFSET" low="0" high="19" type="uint" />
+	</reg32>
+
 	<reg32 offset="0x207" name="VP_UPLOAD_CONST_ID" />
 	<reg32 offset="0x208" name="VP_UPLOAD_CONST" type="float" />
 
