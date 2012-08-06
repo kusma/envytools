@@ -4,7 +4,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 <import file="copyright.xml"/>
 
-<domain name="TGR3D_SUBCHAN" width="32">
+<domain name="TGR3D" width="32">
 	<reg32 offset="0x122" name="DRAW_ARRAYS">
 		<!-- bits 27..31 unknown - only seen 0x19 -->
 		<bitfield name="PRIMITIVE" high="26" low="24" type="uint">
@@ -23,12 +23,12 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 	<reg32 offset="0x208" name="VP_UPLOAD_CONST" />
 
 	<reg32 offset="0x350" name="SCISSOR_HORIZ">
-		<bitfield name="MAX" high="15" low="0" type="uint" />
 		<bitfield name="MIN" high="31" low="16" type="uint" />
+		<bitfield name="MAX" high="15" low="0" type="uint" />
 	</reg32>
 	<reg32 offset="0x351" name="SCISSOR_VERT">
-		<bitfield name="MAX" high="15" low="0" type="uint" />
 		<bitfield name="MIN" high="31" low="16" type="uint" />
+		<bitfield name="MAX" high="15" low="0" type="uint" />
 	</reg32>
 
 	<reg32 offset="0x804" name="VP_UPLOAD_INST" />
