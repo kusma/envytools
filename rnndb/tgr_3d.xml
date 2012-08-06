@@ -4,20 +4,57 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 <import file="copyright.xml"/>
 
+<enum name="index_mode" inline="yes">
+	<value value="0" name="NONE" />
+	<value value="1" name="UINT8" />
+	<value value="2" name="UINT16" />
+</enum>
+
+<enum name="primitive_type" inline="yes">
+	<value value="0" name="POINTS" />
+	<value value="1" name="LINES" />
+	<value value="2" name="LINE_LOOP" />
+	<value value="3" name="LINE_STRIP" />
+	<value value="4" name="TRIANGLES" />
+	<value value="5" name="TRIANGLE_STRIP" />
+	<value value="6" name="TRIANGLE_FAN" />
+</enum>
+
+<enum name="attrib_type" inline="yes">
+	<value value="0x0" name="UBYTE" />
+	<value value="0x1" name="UBYTE_NORM" />
+	<value value="0x2" name="SBYTE" />
+	<value value="0x3" name="SBYTE_NORM" />
+	<value value="0x4" name="USHORT" />
+	<value value="0x5" name="USHORT_NORM" />
+	<value value="0x6" name="SSHORT" />
+	<value value="0x7" name="SSHORT_NORM" />
+	<!-- perhaps missing encodings are INT variants -->
+	<value value="0xc" name="FIXED16" />
+	<value value="0xd" name="FLOAT" />
+</enum>
+
 <domain name="TGR3D" width="32">
-	<reg32 offset="0x122" name="DRAW_ARRAYS">
-		<!-- bits 27..31 unknown - only seen 0x19 -->
-		<bitfield name="PRIMITIVE" high="26" low="24" type="uint">
-			<value value="0" name="POINTS" />
-			<value value="1" name="LINES" />
-			<value value="2" name="LINE_LOOP" />
-			<value value="3" name="LINE_STRIP" />
-			<value value="4" name="TRIANGLES" />
-			<value value="5" name="TRIANGLE_STRIP" />
-			<value value="6" name="TRIANGLE_FAN" />
-		</bitfield>
-		<bitfield name="FIRST" high="23" low="0" type="uint" />
+	<reg32 offset="0x100" name="ATTRIB_PTR" length="16" stride="2" />
+	<reg32 offset="0x101" name="ATTRIB_MODE" length="16" stride="2">
+		<bitfield name="TYPE" low="0" high="3" type="attrib_type" />
+		<bitfield name="SIZE" low="4" high="7" type="uint" />
+		<bitfield name="STRIDE" low="8" high="31" type="uint" />
 	</reg32>
+
+	<reg32 offset="0x122" name="DRAW_PARAMS">
+		<!-- bits 27..31 unknown - only seen 0x19 -->
+		<bitfield name="INDEX_MODE" low="28" high="29" type="index_mode" />
+		<bitfield name="PRIMITIVE_TYPE" high="26" low="24" type="primitive_type" />
+		<bitfield name="FIRST" low="0" high="23" type="uint" />
+	</reg32>
+	<reg32 offset="0x123" name="DRAW_PRIMITIVES">
+		<bitfield name="INDEX_COUNT" low="20" high="31" type="uint" />
+		<bitfield name="OFFSET" low="0" high="19" type="uint" />
+	</reg32>
+
+	<reg32 offset="0x205" name="VP_UPLOAD_INST_ID" />
+	<reg32 offset="0x206" name="VP_UPLOAD_INST" />
 
 	<reg32 offset="0x207" name="VP_UPLOAD_CONST_ID" />
 	<reg32 offset="0x208" name="VP_UPLOAD_CONST" />
@@ -31,7 +68,13 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 		<bitfield name="MAX" high="15" low="0" type="uint" />
 	</reg32>
 
-	<reg32 offset="0x804" name="VP_UPLOAD_INST" />
+	<reg32 offset="0x358" name="VIEWPORT_X" />
+	<reg32 offset="0x359" name="VIEWPORT_Y" />
+
+	<reg32 offset="0x803" name="FP_UPLOAD_INST_ID" />
+	<reg32 offset="0x804" name="FP_UPLOAD_INST" />
+
+	<reg32 offset="0x820" name="FP_CONST" length="32" />
 </domain>
 
 </database>
