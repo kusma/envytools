@@ -59,6 +59,17 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 	<reg32 offset="0x207" name="VP_UPLOAD_CONST_ID" />
 	<reg32 offset="0x208" name="VP_UPLOAD_CONST" />
 
+	<reg32 offset="0x343" name="CULL_FACE">
+		<bitfield name="FRONT_CW" pos="15" type="boolean" />
+		<bitfield name="CULL_CCW" pos="16" type="boolean" />
+		<bitfield name="CULL_CW" pos="17" type="boolean" />
+	</reg32>
+
+	<reg32 offset="0x344" name="POLYGON_OFFSET_UNITS" />
+	<reg32 offset="0x345" name="POLYFON_OFFSET_FACTOR" type="float" />"
+
+	<reg32 offset="0x34d" name="HALF_LINE_WIDTH" type="float" />
+
 	<reg32 offset="0x350" name="SCISSOR_HORIZ">
 		<bitfield name="MIN" high="31" low="16" type="uint" />
 		<bitfield name="MAX" high="15" low="0" type="uint" />
@@ -71,10 +82,29 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 	<reg32 offset="0x358" name="VIEWPORT_X" />
 	<reg32 offset="0x359" name="VIEWPORT_Y" />
 
+	<reg32 offset="0x404" name="DEPTH_RANGE_NEAR" />
+	<reg32 offset="0x405" name="DEPTH_RANGE_FAR" />
+
+	<reg32 offset="0x710" name="TEXTURE_POINTER" length="16" />
+
+	<reg32 offset="0x720" name="TEXTURE_DESC1" length="16" stride="2">
+		<bitfield name="MIPFILTER" pos="23" type="boolean" />
+		<bitfield name="MAGFILTER" pos="28" type="boolean" />
+		<bitfield name="MINFILTER" pos="29" type="boolean" />
+		<bitfield name="FORMAT" high="7" low="4" type="uint" />
+	</reg32>
+	<reg32 offset="0x721" name="TEXTURE_DESC2" length="16" stride="2" >
+		<bitfield name="WIDTH_LOG2" high="31" low="28" />
+		<bitfield name="HEIGHT_LOG2" high="27" low="24" />
+		<bitfield name="MAX_LOD" high="15" low="12" />
+	</reg32>
+
 	<reg32 offset="0x803" name="FP_UPLOAD_INST_ID" />
 	<reg32 offset="0x804" name="FP_UPLOAD_INST" />
 
 	<reg32 offset="0x820" name="FP_CONST" length="32" />
+
+	<reg32 offset="0xe26" name="DITHER" />
 </domain>
 
 </database>
