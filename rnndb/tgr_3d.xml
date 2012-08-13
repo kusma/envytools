@@ -76,7 +76,7 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 	</reg32>
 
 	<reg32 offset="0x344" name="POLYGON_OFFSET_UNITS" />
-	<reg32 offset="0x345" name="POLYFON_OFFSET_FACTOR" type="float" />"
+	<reg32 offset="0x345" name="POLYFON_OFFSET_FACTOR" type="float" />
 
 	<reg32 offset="0x34d" name="HALF_LINE_WIDTH" type="float" />
 
@@ -102,7 +102,7 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 		<bitfield name="MAGFILTER" pos="28" type="boolean" />
 		<bitfield name="MINFILTER" pos="29" type="boolean" />
 		<bitfield name="FORMAT" high="12" low="8" type="texture_format" />
-		<bitfield name="WRAP" high="3" low="0" type="uint" />
+		<bitfield name="WRAP" high="3" low="0" />
 	</reg32>
 	<reg32 offset="0x721" name="TEXTURE_DESC2" length="16" stride="2" >
 		<bitfield name="WIDTH_LOG2" high="31" low="28" />
@@ -115,6 +115,15 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 
 	<reg32 offset="0x820" name="FP_CONST" length="32" />
 
+	<reg32 offset="0xe00" name="RT_DEPTH_PTR" />
+	<reg32 offset="0xe01" name="RT_COLOR_PTR" length="4" />
+
+	<reg32 offset="0xe10" name="RT_DEPTH_PARAMS">
+		<bitfield name="PITCH" high="24" low="8" type="uint" />
+	</reg32>
+	<reg32 offset="0xe11" name="RT_COLOR_PARAMS" length="4">
+		<bitfield name="PITCH" high="24" low="8" type="uint" />
+	</reg32>
 	<reg32 offset="0xe26" name="DITHER" />
 </domain>
 
