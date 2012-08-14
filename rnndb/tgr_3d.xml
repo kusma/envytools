@@ -116,12 +116,12 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 	<reg32 offset="0x820" name="FP_CONST" length="32" />
 
 	<reg32 offset="0xe00" name="RT_DEPTH_PTR" />
-	<reg32 offset="0xe01" name="RT_COLOR_PTR" length="4" />
+	<reg32 offset="0xe01" name="RT_COLOR_PTR" length="8" />
 
 	<reg32 offset="0xe10" name="RT_DEPTH_PARAMS">
 		<bitfield name="PITCH" high="24" low="8" type="uint" />
 	</reg32>
-	<reg32 offset="0xe11" name="RT_COLOR_PARAMS" length="4">
+	<reg32 offset="0xe11" name="RT_COLOR_PARAMS" length="8">
 		<bitfield name="PITCH" high="24" low="8" type="uint" />
 	</reg32>
 	<reg32 offset="0xe26" name="DITHER" />
