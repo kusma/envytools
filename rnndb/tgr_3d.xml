@@ -34,7 +34,7 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 	<value value="0xd" name="FLOAT" />
 </enum>
 
-<enum name="texture_format" inline="yes">
+<enum name="pixel_format" inline="yes">
 	<value value="0x1" name="A8" />
 	<value value="0x2" name="L8" />
 	<value value="0x4" name="LA88" />
@@ -101,7 +101,7 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 		<bitfield name="MIPFILTER" pos="23" type="boolean" />
 		<bitfield name="MAGFILTER" pos="28" type="boolean" />
 		<bitfield name="MINFILTER" pos="29" type="boolean" />
-		<bitfield name="FORMAT" high="12" low="8" type="texture_format" />
+		<bitfield name="FORMAT" high="12" low="8" type="pixel_format" />
 		<bitfield name="WRAP" high="3" low="0" />
 	</reg32>
 	<reg32 offset="0x721" name="TEXTURE_DESC2" length="16" stride="2" >
@@ -122,6 +122,7 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 		<bitfield name="PITCH" high="24" low="8" type="uint" />
 	</reg32>
 	<reg32 offset="0xe11" name="RT_COLOR_PARAMS" length="8">
+		<bitfield name="FORMAT" high="6" low="2" type="pixel_format" />
 		<bitfield name="PITCH" high="24" low="8" type="uint" />
 	</reg32>
 	<reg32 offset="0xe26" name="DITHER" />
