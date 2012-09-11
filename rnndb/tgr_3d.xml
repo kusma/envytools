@@ -44,6 +44,17 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 	<value value="0xD" name="RGBA8888" />
 </enum>
 
+<enum name="depth_func" inline="yes">
+	<value value="0x0"  name="NEVER" />
+	<value value="0x1"  name="LESS" />
+	<value value="0x2"  name="EQUAL" />
+	<value value="0x3"  name="LEQUAL" />
+	<value value="0x4"  name="GREATER" />
+	<value value="0x5"  name="NOTEQUAL" />
+	<value value="0x6"  name="GEQUAL" />
+	<value value="0x7"  name="ALWAYS" />
+</enum>
+
 <enum name="syncpt_conditional" inline="yes">
 	<value value="0x0" name="IMMEDIATE" />
 	<value value="0x1" name="OP_DONE" />
@@ -118,8 +129,14 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 	<reg32 offset="0x359" name="VIEWPORT_Y" />
 	<reg32 offset="0x35a" name="VIEWPORT_Z" />
 
-	<reg32 offset="0x402" name="STENCIL_TEST" />
-	<reg32 offset="0x403" name="DEPTH_TEST" />
+	<reg32 offset="0x402" name="STENCIL_PARAMS">
+		<bitfield name="STENCIL_TEST" pos="5" type="boolean" />
+	</reg32>
+
+	<reg32 offset="0x403" name="DEPTH_TEST">
+		<bitfield name="FUNC" high="7" low="4" type="depth_func" />
+	</reg32>
+
 	<reg32 offset="0x404" name="DEPTH_RANGE_NEAR" />
 	<reg32 offset="0x405" name="DEPTH_RANGE_FAR" />
 
@@ -143,7 +160,10 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 
 	<reg32 offset="0x820" name="FP_CONST" length="32" />
 
-	<reg32 offset="0x903" name="DEPTH_MASK" />
+	<reg32 offset="0x903" name="DEPTH_MASK" >
+		<bitfield name="DEPTH_TEST" pos="16" type="boolean" />
+		<bitfield name="DEPTH_MASK" pos="0" type="boolean" />
+	</reg32>
 
 	<reg32 offset="0xe00" name="RT_DEPTH_PTR" />
 	<reg32 offset="0xe01" name="RT_COLOR_PTR" length="8" />
