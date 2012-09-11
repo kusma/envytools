@@ -35,13 +35,17 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 </enum>
 
 <enum name="pixel_format" inline="yes">
-	<value value="0x1" name="A8" />
-	<value value="0x2" name="L8" />
-	<value value="0x4" name="LA88" />
-	<value value="0x6" name="RGB656" />
-	<value value="0x9" name="RGBA5551" />
-	<value value="0xA" name="RGBA4444" />
-	<value value="0xD" name="RGBA8888" />
+	<value value="0x1"  name="A8" />
+	<value value="0x2"  name="L8" />
+	<value value="0x3"  name="S8" />
+	<value value="0x4"  name="LA88" />
+	<value value="0x6"  name="RGB565" />
+	<value value="0x9"  name="RGBA5551" />
+	<value value="0xa"  name="RGBA4444" />
+	<value value="0xb"  name="D16_LINEAR" />
+	<value value="0xc"  name="D16_NONLINEAR" />
+	<value value="0xd"  name="RGBA8888" />
+	<value value="0x12" name="RGBA_FP32" />
 </enum>
 
 <enum name="depth_func" inline="yes">
@@ -169,6 +173,7 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 	<reg32 offset="0xe01" name="RT_COLOR_PTR" length="8" />
 
 	<reg32 offset="0xe10" name="RT_DEPTH_PARAMS">
+		<bitfield name="FORMAT" high="6" low="2" type="pixel_format" />
 		<bitfield name="PITCH" high="24" low="8" type="uint" />
 	</reg32>
 	<reg32 offset="0xe11" name="RT_COLOR_PARAMS" length="8">
