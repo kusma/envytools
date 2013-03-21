@@ -93,8 +93,9 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 	</reg32>
 
 	<reg32 offset="0x122" name="DRAW_PARAMS">
-		<!-- bits 27..31 unknown - only seen 0x19 -->
+		<!-- bits 30..31 unknown - only seen 0x3 (?) -->
 		<bitfield name="INDEX_MODE" low="28" high="29" type="index_mode" />
+		<!-- bit 27 unknown - only seen set (?) -->
 		<bitfield name="PRIMITIVE_TYPE" high="26" low="24" type="primitive_type" />
 		<bitfield name="FIRST" low="0" high="23" type="uint" />
 	</reg32>
