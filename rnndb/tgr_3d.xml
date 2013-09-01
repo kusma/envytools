@@ -121,6 +121,7 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 		<bitfield name="STRIDE" low="8" high="31" type="uint" />
 	</reg32>
 
+	<reg32 offset="0x121" name="INDEX_PTR" />
 	<reg32 offset="0x122" name="DRAW_PARAMS">
 		<!-- bits 30..31 unknown, usually both set? -->
 		<bitfield name="INDEX_MODE" low="28" high="29" type="index_mode" />
