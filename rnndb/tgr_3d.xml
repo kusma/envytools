@@ -32,7 +32,7 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 	<!-- perhaps missing encodings are INT variants -->
 	<value value="0xc" name="FIXED16" />
 	<value value="0xd" name="FLOAT32" />
-	<value value="0xd" name="FLOAT16" />
+	<value value="0xe" name="FLOAT16" />
 </enum>
 
 <enum name="pixel_format" inline="yes">
