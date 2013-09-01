@@ -29,7 +29,10 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 	<value value="0x5" name="USHORT_NORM" />
 	<value value="0x6" name="SSHORT" />
 	<value value="0x7" name="SSHORT_NORM" />
-	<!-- perhaps missing encodings are INT variants -->
+	<value value="0x8" name="UINT" />
+	<value value="0x9" name="UINT_NORM" />
+	<value value="0xa" name="SINT" />
+	<value value="0xb" name="SINT_NORM" />
 	<value value="0xc" name="FIXED16" />
 	<value value="0xd" name="FLOAT32" />
 	<value value="0xe" name="FLOAT16" />
