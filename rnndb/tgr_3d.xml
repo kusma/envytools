@@ -182,20 +182,27 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 
 	<reg32 offset="0x820" name="FP_CONST" length="32" />
 
-	<reg32 offset="0x903" name="DEPTH_MASK" >
-		<bitfield name="DEPTH_TEST" pos="16" type="boolean" />
-		<bitfield name="DEPTH_MASK" pos="0" type="boolean" />
+	<reg32 offset="0x903" name="RT_ENABLE" >
+		<bitfield name="RT00_ENABLE" pos="0" type="boolean" />
+		<bitfield name="RT01_ENABLE" pos="1" type="boolean" />
+		<bitfield name="RT02_ENABLE" pos="2" type="boolean" />
+		<bitfield name="RT03_ENABLE" pos="3" type="boolean" />
+		<bitfield name="RT04_ENABLE" pos="4" type="boolean" />
+		<bitfield name="RT05_ENABLE" pos="5" type="boolean" />
+		<bitfield name="RT06_ENABLE" pos="6" type="boolean" />
+		<bitfield name="RT07_ENABLE" pos="7" type="boolean" />
+		<bitfield name="RT08_ENABLE" pos="8" type="boolean" />
+		<bitfield name="RT09_ENABLE" pos="9" type="boolean" />
+		<bitfield name="RT10_ENABLE" pos="10" type="boolean" />
+		<bitfield name="RT11_ENABLE" pos="11" type="boolean" />
+		<bitfield name="RT12_ENABLE" pos="12" type="boolean" />
+		<bitfield name="RT13_ENABLE" pos="13" type="boolean" />
+		<bitfield name="RT14_ENABLE" pos="14" type="boolean" />
+		<bitfield name="RT15_ENABLE" pos="15" type="boolean" />
 	</reg32>
 
-	<reg32 offset="0xe00" name="RT_DEPTH_PTR" />
-	<reg32 offset="0xe01" name="RT_COLOR_PTR" length="8" />
-
-	<reg32 offset="0xe10" name="RT_DEPTH_PARAMS">
-		<bitfield name="FORMAT" high="6" low="2" type="pixel_format" />
-		<bitfield name="PITCH" high="24" low="8" type="uint" />
-		<bitfield name="TILED" pos="26" type="boolean" />
-	</reg32>
-	<reg32 offset="0xe11" name="RT_COLOR_PARAMS" length="8">
+	<reg32 offset="0xe00" name="RT_PTR" length="16"/>
+	<reg32 offset="0xe10" name="RT_PARAMS" length="16">
 		<bitfield name="FORMAT" high="6" low="2" type="pixel_format" />
 		<bitfield name="PITCH" high="24" low="8" type="uint" />
 		<bitfield name="TILED" pos="26" type="boolean" />
