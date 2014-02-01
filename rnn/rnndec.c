@@ -126,6 +126,29 @@ static float float16(uint16_t val)
 	return u.f;
 }
 
+static float float20(uint32_t val)
+{
+	uint32_t sign, mantissa, exponent;
+	union {
+		uint32_t u;
+		float f;
+	} bits;
+
+	sign = (val >> 19) & 0x1;
+	exponent = (val >> 13) & 0x3f;
+	mantissa = (val >>  0) & 0x1fff;
+
+	if (exponent == 0x3f)
+		exponent = 0xff;
+	else
+		exponent += 127 - 31;
+
+	mantissa = mantissa << (23 - 13);
+
+	bits.u = sign << 31 | (exponent << 23) | mantissa;
+	return bits.f;
+}
+
 char *rnndec_decodeval(struct rnndeccontext *ctx, struct rnntypeinfo *ti, uint64_t value, int width) {
 	char *res = 0;
 	int i;
@@ -252,6 +275,9 @@ char *rnndec_decodeval(struct rnndeccontext *ctx, struct rnntypeinfo *ti, uint64
 			else if (width == 32)
 				asprintf(&res, "%s%f%s", ctx->colors->num,
 					val.f, ctx->colors->reset);
+			else if (width == 20)
+				asprintf(&res, "%s%f%s", ctx->colors->num,
+					float20(value), ctx->colors->reset);
 			else if (width == 16)
 				asprintf(&res, "%s%f%s", ctx->colors->num,
 					float16(value), ctx->colors->reset);
