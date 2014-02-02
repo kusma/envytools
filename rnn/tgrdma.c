@@ -56,18 +56,34 @@ static unsigned long get_next_value(void)
 
 static struct rnndeccontext *vc;
 static struct rnndb *db;
-struct rnndomain *dom;
+struct rnndomain *nvhost_dom, *tgr3d_dom;
 
-static void handle_write(int reg, unsigned long val)
+static void handle_write(int class_id, int reg, unsigned long val)
 {
-	struct rnndecaddrinfo *info = rnndec_decodeaddr(vc, dom, reg, 0);
+	struct rnndomain *dom = NULL;
 
-	if (info && info->typeinfo)
-		printf("\t%s => %s\n", info->name, rnndec_decodeval(vc, info->typeinfo, val, info->width));
-	else if (info)
-		printf("\t%s => 0x%lx\n", info->name, val);
-	else
-		printf("\t0x%x => 0x%lx\n", reg, val);
+	switch (class_id) {
+	case 1:
+		dom = nvhost_dom;
+		break;
+
+	case 0x0:
+	case 0x60:
+		dom = tgr3d_dom;
+		break;
+	}
+
+	if (dom) {
+		struct rnndecaddrinfo *info = rnndec_decodeaddr(vc, dom, reg, 0);
+
+		if (info && info->typeinfo)
+			printf("\t%s => %s\n", info->name, rnndec_decodeval(vc, info->typeinfo, val, info->width));
+		else if (info)
+			printf("\t%s => 0x%lx\n", info->name, val);
+		else
+			printf("\t0x%x => 0x%lx\n", reg, val);
+	} else
+		printf("\t0x%x 0x%x => 0x%lx\n", class_id, reg, val);
 }
 
 int main(int argc, char *argv[])
@@ -108,9 +124,10 @@ int main(int argc, char *argv[])
 	rnn_prepdb(db);
 	vc = rnndec_newcontext(db);
 	vc->colors = &envy_def_colors;
-	dom = rnn_finddomain(db, "TGR3D");
-	if (!dom) {
-		fprintf(stderr, "Could not find domain TGR3D\n");
+	tgr3d_dom = rnn_finddomain(db, "TGR3D");
+	nvhost_dom = rnn_finddomain(db, "NVHOST");
+	if (!tgr3d_dom || !nvhost_dom) {
+		fprintf(stderr, "Could not find domains\n");
 		exit(1);
 	}
 
@@ -124,9 +141,10 @@ int main(int argc, char *argv[])
 		}
 	}
 
+	int class_id = 0;
 	while (get_next_word(&x) >= 0) {
 		unsigned long value;
-		int op, offset, class_id, mask, count, i;
+		int op, offset, mask, count, i;
 
 		if (echo_commands)
 			printf("# 0x%08lx\n", x);
@@ -140,6 +158,13 @@ int main(int argc, char *argv[])
 			class_id = (x & 0xffc0) >> 6;
 			mask = x & 0x3f;
 			printf("setclass 0x%x 0x%x 0x%x\n", offset, class_id, mask);
+
+			for (i = 0; i < 32; ++i) {
+				if (!(mask & (1 << i)))
+					continue;
+				handle_write(class_id, offset + i, get_next_value());
+			}
+
 			break;
 
 		case 1:
@@ -147,7 +172,7 @@ int main(int argc, char *argv[])
 			count = x & 0xffff;
 			printf("incr 0x%x 0x%x\n", offset, count);
 			for (i = 0; i < count; ++i)
-				handle_write(offset + i, get_next_value());
+				handle_write(class_id, offset + i, get_next_value());
 			break;
 
 		case 2:
@@ -155,7 +180,7 @@ int main(int argc, char *argv[])
 			count = x & 0xffff;
 			printf("nonincr 0x%x 0x%x\n", offset, count);
 			for (i = 0; i < count; ++i)
-				handle_write(offset, get_next_value());
+				handle_write(class_id, offset, get_next_value());
 			break;
 
 		case 3:
@@ -166,7 +191,7 @@ int main(int argc, char *argv[])
 			for (i = 0; i < 32; ++i) {
 				if (!(mask & (1 << i)))
 					continue;
-				handle_write(offset + i, get_next_value());
+				handle_write(class_id, offset + i, get_next_value());
 			}
 			break;
 
@@ -174,7 +199,7 @@ int main(int argc, char *argv[])
 			offset = (x & 0x0fff0000) >> 16;
 			value = x & 0xffff;
 			printf("imm 0x%x 0x%lx\n", offset, value);
-			handle_write(offset, value);
+			handle_write(class_id, offset, value);
 			break;
 
 #if 0
