@@ -168,6 +168,9 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 	<reg32 offset="0x207" name="VP_UPLOAD_CONST_ID" />
 	<reg32 offset="0x208" name="VP_UPLOAD_CONST" type="float" />
 
+	<reg32 offset="0x300" name="UNK300" />
+	<reg32 offset="0x301" name="UNK301" />
+
 	<reg32 offset="0x343" name="CULL_FACE">
 		<bitfield name="FRONT_CW" pos="15" type="boolean" />
 		<bitfield name="CULL_CCW" pos="16" type="boolean" />
@@ -206,6 +209,7 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 	<reg32 offset="0x404" name="DEPTH_RANGE_NEAR" />
 	<reg32 offset="0x405" name="DEPTH_RANGE_FAR" />
 
+	<reg32 offset="0x600" name="FP_UPLOAD_UNK600" />
 	<reg32 offset="0x601" name="FP_UPLOAD_SFU_SCHED">
 		<bitfield name="OFFSET" low="2" high="7" />
 		<bitfield name="COUNT" low="0" high="1" />
@@ -229,11 +233,17 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 		<bitfield name="MAX_LOD" high="15" low="12" />
 	</reg32>
 
+	<reg32 offset="0x800" name="FP_UPLOAD_UNK800" />
 	<reg32 offset="0x801" name="FP_UPLOAD_ALU_SCHED">
 		<bitfield name="OFFSET" low="2" high="7" />
 		<bitfield name="COUNT" low="0" high="1" />
 	</reg32>
 	<reg32 offset="0x804" name="FP_UPLOAD_ALU_INST" />
+
+	<reg32 offset="0x805" name="FP_UPLOAD_UNK805_ID" />
+	<reg32 offset="0x806" name="FP_UPLOAD_UND805_DATA">
+		<bitfield name="VALID" low="0" high="31" type="uint" />
+	</reg32>
 
 	<reg32 offset="0x820" name="FP_CONST" length="32" />
 
