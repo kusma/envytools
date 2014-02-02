@@ -121,6 +121,34 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 		<bitfield name="STRIDE" low="8" high="31" type="uint" />
 	</reg32>
 
+	<reg32 offset="0x120" name="UNK_120">
+		<bitfield name="VAR01" pos="6" type="boolean" />
+		<bitfield name="VAR02" pos="7" type="boolean" />
+		<bitfield name="VAR03" pos="8" type="boolean" />
+		<bitfield name="VAR04" pos="9" type="boolean" />
+		<bitfield name="VAR05" pos="10" type="boolean" />
+		<bitfield name="VAR06" pos="11" type="boolean" />
+		<bitfield name="VAR07" pos="12" type="boolean" />
+		<bitfield name="VAR08" pos="13" type="boolean" />
+		<bitfield name="VAR09" pos="14" type="boolean" />
+		<bitfield name="VAR10" pos="15" type="boolean" />
+		<bitfield name="ATTR01" pos="16" type="boolean" />
+		<bitfield name="ATTR02" pos="17" type="boolean" />
+		<bitfield name="ATTR03" pos="18" type="boolean" />
+		<bitfield name="ATTR04" pos="19" type="boolean" />
+		<bitfield name="ATTR05" pos="20" type="boolean" />
+		<bitfield name="ATTR06" pos="21" type="boolean" />
+		<bitfield name="ATTR07" pos="22" type="boolean" />
+		<bitfield name="ATTR08" pos="23" type="boolean" />
+		<bitfield name="ATTR09" pos="24" type="boolean" />
+		<bitfield name="ATTR10" pos="25" type="boolean" />
+		<bitfield name="ATTR11" pos="26" type="boolean" />
+		<bitfield name="ATTR12" pos="27" type="boolean" />
+		<bitfield name="ATTR13" pos="28" type="boolean" />
+		<bitfield name="ATTR14" pos="29" type="boolean" />
+		<bitfield name="ATTR15" pos="30" type="boolean" />
+		<bitfield name="ATTR16" pos="31" type="boolean" />
+	</reg32>
 	<reg32 offset="0x121" name="INDEX_PTR" />
 	<reg32 offset="0x122" name="DRAW_PARAMS">
 		<!-- bits 30..31 unknown, usually both set? -->
