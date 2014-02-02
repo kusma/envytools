@@ -4,6 +4,31 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 <import file="copyright.xml"/>
 
+<enum name="syncpt_conditional" inline="yes">
+	<value value="0x0" name="IMMEDIATE" />
+	<value value="0x1" name="OP_DONE" />
+	<value value="0x2" name="RD_DONE" />
+	<value value="0x3" name="WR_SAFE" />
+</enum>
+
+<domain name="NVHOST" width="32">
+	<reg32 offset="0x000" name="INCR_SYNCPT">
+		<bitfield name="SYNCPT_INDEX" low="0" high="7" />
+		<bitfield name="CONDITION" low="8" high="10" type="syncpt_conditional" />
+	</reg32>
+	<reg32 offset="0x008" name="WAIT_SYNCPT" />
+	<reg32 offset="0x009" name="WAIT_SYNCPT_BASE">
+		<bitfield name="OFFSET" low="0" high="15" />
+		<bitfield name="BASE_IDX" low="16" high="23" />
+		<bitfield name="IDX" low="24" high="31" />
+	</reg32>
+	<reg32 offset="0x00b" name="LOAD_SYNCPT_BASE" />
+	<reg32 offset="0x00c" name="INCR_SYNCPT_BASE">
+		<bitfield name="OFFSET" low="0" high="23" />
+		<bitfield name="BASE_IDX" low="24" high="31" />
+	</reg32>
+</domain>
+
 <domain name="TGR3D" width="32">
 	<reg32 offset="0x350" name="SCISSOR_HORIZ">
 		<bitfield name="MIN" high="31" low="16" type="uint" />
