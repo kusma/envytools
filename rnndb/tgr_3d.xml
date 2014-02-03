@@ -155,6 +155,8 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 	<reg32 offset="0x356" name="VIEWPORT_Y_SCALE" type="float" />
 	<reg32 offset="0x357" name="VIEWPORT_Z_SCALE" type="float" />
 
+	<reg32 offset="0x402" name="STENCIL_TEST" />
+	<reg32 offset="0x403" name="DEPTH_TEST" />
 	<reg32 offset="0x404" name="DEPTH_RANGE_NEAR" />
 	<reg32 offset="0x405" name="DEPTH_RANGE_FAR" />
 
@@ -177,6 +179,8 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 	<reg32 offset="0x804" name="FP_UPLOAD_INST" />
 
 	<reg32 offset="0x820" name="FP_CONST" length="32" />
+
+	<reg32 offset="0x903" name="DEPTH_MASK" />
 
 	<reg32 offset="0xe00" name="RT_PTR" length="16" />
 	<reg32 offset="0xe10" name="RT_COLOR_PARAMS" length="16">
