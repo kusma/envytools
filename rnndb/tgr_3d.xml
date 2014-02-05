@@ -133,6 +133,21 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 	<reg32 offset="0x404" name="DEPTH_RANGE_NEAR" />
 	<reg32 offset="0x405" name="DEPTH_RANGE_FAR" />
 
+	<reg32 offset="0x710" name="TEXTURE_POINTER" length="16" />
+
+	<reg32 offset="0x720" name="TEXTURE_DESC1" length="16" stride="2">
+		<bitfield name="MIPFILTER" pos="23" type="boolean" />
+		<bitfield name="MAGFILTER" pos="28" type="boolean" />
+		<bitfield name="MINFILTER" pos="29" type="boolean" />
+		<bitfield name="FORMAT" high="12" low="8" type="pixel_format" />
+		<bitfield name="WRAP" high="3" low="0" />
+	</reg32>
+	<reg32 offset="0x721" name="TEXTURE_DESC2" length="16" stride="2" >
+		<bitfield name="WIDTH_LOG2" high="31" low="28" />
+		<bitfield name="HEIGHT_LOG2" high="27" low="24" />
+		<bitfield name="MAX_LOD" high="15" low="12" />
+	</reg32>
+
 	<reg32 offset="0x803" name="FP_UPLOAD_INST_ID" />
 	<reg32 offset="0x804" name="FP_UPLOAD_INST" />
 
