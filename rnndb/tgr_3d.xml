@@ -95,6 +95,9 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 		<bitfield name="CULL_CW" pos="17" type="boolean" />
 	</reg32>
 
+	<reg32 offset="0x344" name="POLYGON_OFFSET_UNITS" />
+	<reg32 offset="0x345" name="POLYGON_OFFSET_FACTOR" type="float" />
+
 	<reg32 offset="0x350" name="SCISSOR_HORIZ">
 		<bitfield name="MIN" high="31" low="16" type="uint" />
 		<bitfield name="MAX" high="15" low="0" type="uint" />
