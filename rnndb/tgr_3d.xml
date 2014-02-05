@@ -98,6 +98,8 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 	<reg32 offset="0x344" name="POLYGON_OFFSET_UNITS" />
 	<reg32 offset="0x345" name="POLYGON_OFFSET_FACTOR" type="float" />
 
+	<reg32 offset="0x34d" name="HALF_LINE_WIDTH" type="float" />
+
 	<reg32 offset="0x350" name="SCISSOR_HORIZ">
 		<bitfield name="MIN" high="31" low="16" type="uint" />
 		<bitfield name="MAX" high="15" low="0" type="uint" />
