@@ -89,6 +89,12 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 	<reg32 offset="0x207" name="VP_UPLOAD_CONST_ID" />
 	<reg32 offset="0x208" name="VP_UPLOAD_CONST" type="float" />
 
+	<reg32 offset="0x343" name="CULL_FACE">
+		<bitfield name="FRONT_CW" pos="15" type="boolean" />
+		<bitfield name="CULL_CCW" pos="16" type="boolean" />
+		<bitfield name="CULL_CW" pos="17" type="boolean" />
+	</reg32>
+
 	<reg32 offset="0x350" name="SCISSOR_HORIZ">
 		<bitfield name="MIN" high="31" low="16" type="uint" />
 		<bitfield name="MAX" high="15" low="0" type="uint" />
