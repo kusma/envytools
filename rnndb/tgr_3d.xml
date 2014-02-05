@@ -30,6 +30,9 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 </domain>
 
 <domain name="TGR3D" width="32">
+	<reg32 offset="0x207" name="VP_UPLOAD_CONST_ID" />
+	<reg32 offset="0x208" name="VP_UPLOAD_CONST" type="float" />
+
 	<reg32 offset="0x350" name="SCISSOR_HORIZ">
 		<bitfield name="MIN" high="31" low="16" type="uint" />
 		<bitfield name="MAX" high="15" low="0" type="uint" />
