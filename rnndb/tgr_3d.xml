@@ -245,7 +245,10 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 		<bitfield name="VALID" low="0" high="31" type="uint" />
 	</reg32>
 
-	<reg32 offset="0x820" name="FP_CONST" length="32" />
+	<reg32 offset="0x820" name="FP_CONST" length="32">
+		<bitfield name="float" type="float" low="0" high="19" />
+		<bitfield name="uint" low="0" high="19" />
+	</reg32>
 
 	<reg32 offset="0x903" name="DEPTH_MASK" >
 		<bitfield name="DEPTH_TEST" pos="16" type="boolean" />
