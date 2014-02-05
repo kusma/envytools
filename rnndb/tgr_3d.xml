@@ -38,6 +38,13 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 		<bitfield name="MIN" high="31" low="16" type="uint" />
 		<bitfield name="MAX" high="15" low="0" type="uint" />
 	</reg32>
+
+	<reg32 offset="0x352" name="VIEWPORT_X_BIAS" type="float" />
+	<reg32 offset="0x353" name="VIEWPORT_Y_BIAS" type="float" />
+	<reg32 offset="0x354" name="VIEWPORT_Z_BIAS" type="float" />
+	<reg32 offset="0x355" name="VIEWPORT_X_SCALE" type="float" />
+	<reg32 offset="0x356" name="VIEWPORT_Y_SCALE" type="float" />
+	<reg32 offset="0x357" name="VIEWPORT_Z_SCALE" type="float" />
 </domain>
 
 </database>
