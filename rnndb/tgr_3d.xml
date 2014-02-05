@@ -137,6 +137,13 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 	<reg32 offset="0x804" name="FP_UPLOAD_INST" />
 
 	<reg32 offset="0x820" name="FP_CONST" length="32" />
+
+	<reg32 offset="0xe00" name="RT_PTR" length="16" />
+	<reg32 offset="0xe10" name="RT_COLOR_PARAMS" length="16">
+		<bitfield name="FORMAT" high="6" low="2" type="pixel_format" />
+		<bitfield name="PITCH" high="24" low="8" type="uint" />
+		<bitfield name="LAYOUT" high="27" low="25" type="uint" />
+	</reg32>
 </domain>
 
 </database>
