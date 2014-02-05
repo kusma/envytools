@@ -107,6 +107,8 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 
 	<reg32 offset="0x803" name="FP_UPLOAD_INST_ID" />
 	<reg32 offset="0x804" name="FP_UPLOAD_INST" />
+
+	<reg32 offset="0x820" name="FP_CONST" length="32" />
 </domain>
 
 </database>
