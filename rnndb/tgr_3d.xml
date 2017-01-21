@@ -191,6 +191,8 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 	<reg32 offset="0x404" name="DEPTH_RANGE_NEAR" />
 	<reg32 offset="0x405" name="DEPTH_RANGE_FAR" />
 
+	<reg32 offset="0x500" name="PSEQ_UPLOAD_INST_BUFFER_FLUSH" />
+
 	<reg32 offset="0x520" name="PSEQ_ENGINE_INST" />
 
 	<reg32 offset="0x541" name="PSEQ_UPLOAD_INST" />
