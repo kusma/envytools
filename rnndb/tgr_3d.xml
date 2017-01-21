@@ -246,6 +246,8 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 		<bitfield name="15" pos="15" type="boolean" />
 	</reg32>
 
+	<reg32 offset="0x901" name="FP_UPLOAD_DW_INST" />
+
 	<reg32 offset="0xe00" name="RT_PTR" length="16"/>
 	<reg32 offset="0xe10" name="RT_PARAMS" length="16">
 		<bitfield name="FORMAT" high="6" low="2" type="pixel_format" />
