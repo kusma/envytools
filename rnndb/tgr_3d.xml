@@ -115,10 +115,12 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 	<reg32 offset="0x207" name="VP_UPLOAD_CONST_ID" />
 	<reg32 offset="0x208" name="VP_UPLOAD_CONST" />
 
-	<reg32 offset="0x343" name="CULL_FACE">
+	<reg32 offset="0x343" name="CULL_FACE_LINKER_SETUP">
+		<bitfield name="LINKER_INST_COUNT" low="5" high="9" type="uint" />
 		<bitfield name="FRONT_CW" pos="15" type="boolean" />
 		<bitfield name="CULL_CCW" pos="16" type="boolean" />
 		<bitfield name="CULL_CW" pos="17" type="boolean" />
+		<bitfield name="UNK_18_31" pos="18" high="31" type="hex" />
 	</reg32>
 
 	<reg32 offset="0x344" name="POLYGON_OFFSET_UNITS" />
