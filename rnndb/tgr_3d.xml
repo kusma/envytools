@@ -153,6 +153,8 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 	<reg32 offset="0x404" name="DEPTH_RANGE_NEAR" />
 	<reg32 offset="0x405" name="DEPTH_RANGE_FAR" />
 
+	<reg32 offset="0x520" name="PSEQ_ENGINE_INST" />
+
 	<reg32 offset="0x601" name="FP_UPLOAD_SFU_SCHED">
 		<bitfield name="OFFSET" low="2" high="7" />
 		<bitfield name="COUNT" low="0" high="1" />
