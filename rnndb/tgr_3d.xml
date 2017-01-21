@@ -223,6 +223,7 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 		<bitfield name="COUNT" low="0" high="1" />
 	</reg32>
 	<reg32 offset="0x804" name="FP_UPLOAD_ALU_INST" />
+	<reg32 offset="0x806" name="FP_UPLOAD_ALU_INST_COMPLEMENT" />
 
 	<reg32 offset="0x820" name="FP_CONST" length="32" />
 
