@@ -86,8 +86,8 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 		<bitfield name="OFFSET" low="0" high="23" />
 		<bitfield name="BASE_IDX" low="24" high="31" />
 	</reg32>
+	<reg32 offset="0x02c" name="INDOFF2" />
 	<reg32 offset="0x02d" name="INDOFF" />
-	<reg32 offset="0x02d" name="INDDATA" />
 
 	<reg32 offset="0x100" name="ATTRIB_PTR" length="16" stride="2" />
 	<reg32 offset="0x101" name="ATTRIB_MODE" length="16" stride="2">
