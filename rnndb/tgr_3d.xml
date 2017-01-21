@@ -266,6 +266,7 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 
 	<reg32 offset="0xe00" name="RT_PTR" length="16"/>
 	<reg32 offset="0xe10" name="RT_PARAMS" length="16">
+		<bitfield name="DITHER_ENABLE" pos="0" type="boolean" />
 		<bitfield name="FORMAT" high="6" low="2" type="pixel_format" />
 		<bitfield name="PITCH" high="24" low="8" type="uint" />
 		<bitfield name="TILED" pos="26" type="boolean" />
