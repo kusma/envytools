@@ -151,6 +151,8 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 	<reg32 offset="0x207" name="VP_UPLOAD_CONST_ID" />
 	<reg32 offset="0x208" name="VP_UPLOAD_CONST" />
 
+	<reg64 offset="0x300" name="LINKER_INSTRUCTION" length="32" />
+
 	<reg32 offset="0x343" name="CULL_FACE_LINKER_SETUP">
 		<bitfield name="LINKER_INST_COUNT" low="5" high="9" type="uint" />
 		<bitfield name="FRONT_CW" pos="15" type="boolean" />
