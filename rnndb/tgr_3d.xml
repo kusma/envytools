@@ -182,6 +182,10 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 	<reg32 offset="0x356" name="VIEWPORT_Y_SCALE" type="float" />
 	<reg32 offset="0x357" name="VIEWPORT_Z_SCALE" type="float" />
 
+	<reg32 offset="0x358" name="GUARDBAND_WIDTH" type="float" />
+	<reg32 offset="0x359" name="GUARDBAND_HEIGHT" type="float" />
+	<reg32 offset="0x35a" name="GUARDBAND_DEPTH" type="float" />
+
 	<reg32 offset="0x402" name="STENCIL_PARAMS">
 		<bitfield name="STENCIL_TEST" pos="5" type="boolean" />
 	</reg32>
