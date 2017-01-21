@@ -185,22 +185,22 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 	<reg32 offset="0x820" name="FP_CONST" length="32" />
 
 	<reg32 offset="0x903" name="RT_ENABLE" >
-		<bitfield name="RT00_ENABLE" pos="0" type="boolean" />
-		<bitfield name="RT01_ENABLE" pos="1" type="boolean" />
-		<bitfield name="RT02_ENABLE" pos="2" type="boolean" />
-		<bitfield name="RT03_ENABLE" pos="3" type="boolean" />
-		<bitfield name="RT04_ENABLE" pos="4" type="boolean" />
-		<bitfield name="RT05_ENABLE" pos="5" type="boolean" />
-		<bitfield name="RT06_ENABLE" pos="6" type="boolean" />
-		<bitfield name="RT07_ENABLE" pos="7" type="boolean" />
-		<bitfield name="RT08_ENABLE" pos="8" type="boolean" />
-		<bitfield name="RT09_ENABLE" pos="9" type="boolean" />
-		<bitfield name="RT10_ENABLE" pos="10" type="boolean" />
-		<bitfield name="RT11_ENABLE" pos="11" type="boolean" />
-		<bitfield name="RT12_ENABLE" pos="12" type="boolean" />
-		<bitfield name="RT13_ENABLE" pos="13" type="boolean" />
-		<bitfield name="RT14_ENABLE" pos="14" type="boolean" />
-		<bitfield name="RT15_ENABLE" pos="15" type="boolean" />
+		<bitfield name="0" pos="0" type="boolean" />
+		<bitfield name="1" pos="1" type="boolean" />
+		<bitfield name="2" pos="2" type="boolean" />
+		<bitfield name="3" pos="3" type="boolean" />
+		<bitfield name="4" pos="4" type="boolean" />
+		<bitfield name="5" pos="5" type="boolean" />
+		<bitfield name="6" pos="6" type="boolean" />
+		<bitfield name="7" pos="7" type="boolean" />
+		<bitfield name="8" pos="8" type="boolean" />
+		<bitfield name="9" pos="9" type="boolean" />
+		<bitfield name="10" pos="10" type="boolean" />
+		<bitfield name="11" pos="11" type="boolean" />
+		<bitfield name="12" pos="12" type="boolean" />
+		<bitfield name="13" pos="13" type="boolean" />
+		<bitfield name="14" pos="14" type="boolean" />
+		<bitfield name="15" pos="15" type="boolean" />
 	</reg32>
 
 	<reg32 offset="0xe00" name="RT_PTR" length="16"/>
