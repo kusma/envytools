@@ -4,13 +4,13 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 <import file="grate_copyright.xml"/>
 
-<enum name="index_mode" inline="yes">
+<enum name="INDEX_MODE">
 	<value value="0" name="NONE" />
 	<value value="1" name="UINT8" />
 	<value value="2" name="UINT16" />
 </enum>
 
-<enum name="primitive_type" inline="yes">
+<enum name="PRIMITIVE_TYPE">
 	<value value="0" name="POINTS" />
 	<value value="1" name="LINES" />
 	<value value="2" name="LINE_LOOP" />
@@ -20,12 +20,12 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 	<value value="6" name="TRIANGLE_FAN" />
 </enum>
 
-<enum name="provoking_vertex" inline="yes">
+<enum name="PROVOKING_VERTEX">
 	<value value="0" name="FIRST" />
 	<value value="1" name="LAST" />
 </enum>
 
-<enum name="attrib_type" inline="yes">
+<enum name="ATTRIB_TYPE">
 	<value value="0x0" name="UBYTE" />
 	<value value="0x1" name="UBYTE_NORM" />
 	<value value="0x2" name="SBYTE" />
@@ -43,7 +43,7 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 	<value value="0xe" name="FLOAT16" />
 </enum>
 
-<enum name="pixel_format" inline="yes">
+<enum name="PIXEL_FORMAT">
 	<value value="0x1"  name="A8" />
 	<value value="0x2"  name="L8" />
 	<value value="0x3"  name="S8" />
@@ -57,7 +57,7 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 	<value value="0x12" name="RGBA_FP32" />
 </enum>
 
-<enum name="depth_func" inline="yes">
+<enum name="DEPTH_FUNC">
 	<value value="0x0"  name="NEVER" />
 	<value value="0x1"  name="LESS" />
 	<value value="0x2"  name="EQUAL" />
@@ -68,7 +68,7 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 	<value value="0x7"  name="ALWAYS" />
 </enum>
 
-<enum name="syncpt_conditional" inline="yes">
+<enum name="SYNCPT_CONDITIONAL">
 	<value value="0x0" name="IMMEDIATE" />
 	<value value="0x1" name="OP_DONE" />
 	<value value="0x2" name="RD_DONE" />
@@ -78,7 +78,7 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 <domain name="TGR3D" width="32">
 	<reg32 offset="0x000" name="INCR_SYNCPT">
 		<bitfield name="SYNCPT_INDEX" low="0" high="7" />
-		<bitfield name="CONDITION" low="8" high="10" type="syncpt_conditional" />
+		<bitfield name="CONDITION" low="8" high="10" type="SYNCPT_CONDITIONAL" />
 	</reg32>
 	<reg32 offset="0x008" name="WAIT_SYNCPT" />
 	<reg32 offset="0x009" name="WAIT_SYNCPT_BASE">
@@ -96,7 +96,7 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 
 	<reg32 offset="0x100" name="ATTRIB_PTR" length="16" stride="2" />
 	<reg32 offset="0x101" name="ATTRIB_MODE" length="16" stride="2">
-		<bitfield name="TYPE" low="0" high="3" type="attrib_type" />
+		<bitfield name="TYPE" low="0" high="3" type="ATTRIB_TYPE" />
 		<bitfield name="SIZE" low="4" high="7" type="uint" />
 		<bitfield name="STRIDE" low="8" high="31" type="uint" />
 	</reg32>
@@ -140,9 +140,9 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 	<reg32 offset="0x121" name="INDEX_PTR" />
 	<reg32 offset="0x122" name="DRAW_PARAMS">
 		<!-- bits 30..31 unknown - only seen 0x3 (?) -->
-		<bitfield name="INDEX_MODE" low="28" high="29" type="index_mode" />
-		<bitfield name="PROVOKING_VERTEX" pos="27" type="provoking_vertex" />
-		<bitfield name="PRIMITIVE_TYPE" low="24" high="26" type="primitive_type" />
+		<bitfield name="INDEX_MODE" low="28" high="29" type="INDEX_MODE" />
+		<bitfield name="PROVOKING_VERTEX" pos="27" type="PROVOKING_VERTEX" />
+		<bitfield name="PRIMITIVE_TYPE" low="24" high="26" type="PRIMITIVE_TYPE" />
 		<bitfield name="FIRST" low="0" high="23" type="uint" />
 	</reg32>
 	<reg32 offset="0x123" name="DRAW_PRIMITIVES">
@@ -204,7 +204,7 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 	</reg32>
 
 	<reg32 offset="0x403" name="DEPTH_TEST">
-		<bitfield name="FUNC" high="7" low="4" type="depth_func" />
+		<bitfield name="FUNC" high="7" low="4" type="DEPTH_FUNC" />
 	</reg32>
 
 	<reg32 offset="0x404" name="DEPTH_RANGE_NEAR" />
@@ -234,7 +234,7 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 		<bitfield name="MIPFILTER" pos="23" type="boolean" />
 		<bitfield name="MAGFILTER" pos="28" type="boolean" />
 		<bitfield name="MINFILTER" pos="29" type="boolean" />
-		<bitfield name="FORMAT" high="12" low="8" type="pixel_format" />
+		<bitfield name="FORMAT" high="12" low="8" type="PIXEL_FORMAT" />
 		<bitfield name="WRAP" high="3" low="0" />
 	</reg32>
 	<reg32 offset="0x721" name="TEXTURE_DESC2" length="16" stride="2" >
@@ -276,7 +276,7 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 	<reg32 offset="0xe00" name="RT_PTR" length="16"/>
 	<reg32 offset="0xe10" name="RT_PARAMS" length="16">
 		<bitfield name="DITHER_ENABLE" pos="0" type="boolean" />
-		<bitfield name="FORMAT" high="6" low="2" type="pixel_format" />
+		<bitfield name="FORMAT" high="6" low="2" type="PIXEL_FORMAT" />
 		<bitfield name="PITCH" high="24" low="8" type="uint" />
 		<bitfield name="TILED" pos="26" type="boolean" />
 	</reg32>
