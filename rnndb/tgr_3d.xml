@@ -20,6 +20,11 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 	<value value="6" name="TRIANGLE_FAN" />
 </enum>
 
+<enum name="provoking_vertex" inline="yes">
+	<value value="0" name="FIRST" />
+	<value value="1" name="LAST" />
+</enum>
+
 <enum name="attrib_type" inline="yes">
 	<value value="0x0" name="UBYTE" />
 	<value value="0x1" name="UBYTE_NORM" />
@@ -136,7 +141,7 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 	<reg32 offset="0x122" name="DRAW_PARAMS">
 		<!-- bits 30..31 unknown - only seen 0x3 (?) -->
 		<bitfield name="INDEX_MODE" low="28" high="29" type="index_mode" />
-		<!-- bit 27 unknown - only seen set (?) -->
+		<bitfield name="PROVOKING_VERTEX" pos="27" type="provoking_vertex" />
 		<bitfield name="PRIMITIVE_TYPE" low="24" high="26" type="primitive_type" />
 		<bitfield name="FIRST" low="0" high="23" type="uint" />
 	</reg32>
