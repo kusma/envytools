@@ -225,7 +225,10 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 		<bitfield name="COUNT" low="0" high="1" />
 	</reg32>
 
+	<reg32 offset="0x603" name="FP_UPLOAD_MFU_INST_ID" type="uint" />
 	<reg32 offset="0x604" name="FP_UPLOAD_MFU_INST" />
+
+	<reg32 offset="0x700" name="FP_UPLOAD_TEX_INST_ID" type="uint" />
 	<reg32 offset="0x701" name="FP_UPLOAD_TEX_INST" />
 
 	<reg32 offset="0x710" name="TEXTURE_POINTER" length="16" />
@@ -247,10 +250,14 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 		<bitfield name="OFFSET" low="2" high="7" />
 		<bitfield name="COUNT" low="0" high="1" />
 	</reg32>
+	<reg32 offset="0x803" name="FP_UPLOAD_ALU_INST_ID" type="uint" />
 	<reg32 offset="0x804" name="FP_UPLOAD_ALU_INST" />
 	<reg32 offset="0x806" name="FP_UPLOAD_ALU_INST_COMPLEMENT" />
 
 	<reg32 offset="0x820" name="FP_CONST" length="32" />
+
+	<reg32 offset="0x900" name="FP_UPLOAD_DW_INST_ID" type="uint" />
+	<reg32 offset="0x901" name="FP_UPLOAD_DW_INST" />
 
 	<reg32 offset="0x903" name="RT_ENABLE" >
 		<bitfield name="0" pos="0" type="boolean" />
@@ -270,8 +277,6 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 		<bitfield name="14" pos="14" type="boolean" />
 		<bitfield name="15" pos="15" type="boolean" />
 	</reg32>
-
-	<reg32 offset="0x901" name="FP_UPLOAD_DW_INST" />
 
 	<reg32 offset="0xe00" name="RT_PTR" length="16"/>
 	<reg32 offset="0xe10" name="RT_PARAMS" length="16">
