@@ -214,6 +214,7 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 
 	<reg32 offset="0x520" name="PSEQ_ENGINE_INST" />
 
+	<reg32 offset="0x540" name="PSEQ_UPLOAD_INST_ID" />
 	<reg32 offset="0x541" name="PSEQ_UPLOAD_INST" />
 
 	<reg32 offset="0x546" name="PSEQ_DW_CFG">
