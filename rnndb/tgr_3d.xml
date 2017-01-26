@@ -242,9 +242,11 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 		<bitfield name="WRAP" high="3" low="0" />
 	</reg32>
 	<reg32 offset="0x721" name="TEXTURE_DESC2" length="16" stride="2" >
-		<bitfield name="WIDTH_LOG2" high="31" low="28" />
-		<bitfield name="HEIGHT_LOG2" high="27" low="24" />
-		<bitfield name="MAX_LOD" high="15" low="12" />
+		<bitfield name="WIDTH" high="31" low="20" type="uint" />
+		<bitfield name="HEIGHT" high="19" low="8" type="uint" />
+		<bitfield name="WIDTH_LOG2" high="31" low="28" type="uint" />
+		<bitfield name="HEIGHT_LOG2" high="27" low="24" type="uint" />
+		<bitfield name="MAX_LOD" high="15" low="12" type="uint" />
 	</reg32>
 
 	<reg32 offset="0x801" name="FP_UPLOAD_ALU_SCHED">
