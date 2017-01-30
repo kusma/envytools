@@ -299,6 +299,8 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 		<bitfield name="USED_TRAM_ROWS_NB" low="8" high="14" type="uint" />
 	</reg32>
 
+	<reg32 offset="0xe22" name="FP_UPLOAD_INST_ID_COMMON" type="uint" />
+
 	<reg32 offset="0xe26" name="DITHER" />
 </domain>
 
