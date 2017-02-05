@@ -25,6 +25,13 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 	<value value="1" name="LAST" />
 </enum>
 
+<enum name="CULL_FACE">
+	<value value="0" name="NONE" />
+	<value value="1" name="CCW" />
+	<value value="2" name="CW" />
+	<value value="3" name="BOTH" />
+</enum>
+
 <enum name="ATTRIB_TYPE">
 	<value value="0x0" name="UBYTE" />
 	<value value="0x1" name="UBYTE_NORM" />
@@ -161,8 +168,7 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 	<reg32 offset="0x343" name="CULL_FACE_LINKER_SETUP">
 		<bitfield name="LINKER_INST_COUNT" low="5" high="9" type="uint" />
 		<bitfield name="FRONT_CW" pos="15" type="boolean" />
-		<bitfield name="CULL_CCW" pos="16" type="boolean" />
-		<bitfield name="CULL_CW" pos="17" type="boolean" />
+		<bitfield name="CULL_FACE" low="16" high="17" type="CULL_FACE" />
 		<bitfield name="UNK_18_31" pos="18" high="31" type="hex" />
 	</reg32>
 
