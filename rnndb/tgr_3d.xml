@@ -209,8 +209,10 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 		<bitfield name="STENCIL_TEST" pos="5" type="boolean" />
 	</reg32>
 
-	<reg32 offset="0x403" name="DEPTH_TEST">
+	<reg32 offset="0x403" name="DEPTH_TEST_PARAMS">
+		<bitfield name="DEPTH_WRITE" pos="8" type="boolean" />
 		<bitfield name="FUNC" high="7" low="4" type="DEPTH_FUNC" />
+		<bitfield name="DEPTH_TEST" pos="3" type="boolean" />
 	</reg32>
 
 	<reg32 offset="0x404" name="DEPTH_RANGE_NEAR" />
@@ -285,6 +287,7 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 		<bitfield name="13" pos="13" type="boolean" />
 		<bitfield name="14" pos="14" type="boolean" />
 		<bitfield name="15" pos="15" type="boolean" />
+		<bitfield name="DEPTH_BUFFER" pos="16" type="boolean" />
 	</reg32>
 
 	<reg32 offset="0xe00" name="RT_PTR" length="16"/>
