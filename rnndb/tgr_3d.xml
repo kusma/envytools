@@ -247,7 +247,10 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 		<bitfield name="MAGFILTER" pos="28" type="boolean" />
 		<bitfield name="MINFILTER" pos="29" type="boolean" />
 		<bitfield name="FORMAT" high="12" low="8" type="PIXEL_FORMAT" />
-		<bitfield name="WRAP" high="3" low="0" />
+		<bitfield name="WRAP_S_MIRRORED_REPEAT" pos="3" type="boolean" />
+		<bitfield name="WRAP_T_MIRRORED_REPEAT" pos="2" type="boolean" />
+		<bitfield name="WRAP_S_CLAMP_TO_EDGE" pos="1" type="boolean" />
+		<bitfield name="WRAP_T_CLAMP_TO_EDGE" pos="0" type="boolean" />
 	</reg32>
 	<reg32 offset="0x721" name="TEXTURE_DESC2" length="16" stride="2" >
 		<bitfield name="WIDTH" high="31" low="20" type="uint" />
@@ -255,6 +258,7 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 		<bitfield name="WIDTH_LOG2" high="31" low="28" type="uint" />
 		<bitfield name="HEIGHT_LOG2" high="27" low="24" type="uint" />
 		<bitfield name="MAX_LOD" high="15" low="12" type="uint" />
+		<bitfield name="NOT_POW2_DIMENSIONS" pos="6" type="boolean" />
 	</reg32>
 
 	<reg32 offset="0x801" name="FP_UPLOAD_ALU_SCHED">
