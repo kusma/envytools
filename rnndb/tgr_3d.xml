@@ -243,9 +243,9 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 	<reg32 offset="0x710" name="TEXTURE_POINTER" length="16" />
 
 	<reg32 offset="0x720" name="TEXTURE_DESC1" length="16" stride="2">
-		<bitfield name="MIPFILTER" pos="23" type="boolean" />
-		<bitfield name="MAGFILTER" pos="28" type="boolean" />
-		<bitfield name="MINFILTER" pos="29" type="boolean" />
+		<bitfield name="MAGFILTER_LINEAR" pos="29" type="boolean" />
+		<bitfield name="MINFILTER_LINEAR_WITHIN" pos="28" type="boolean" />
+		<bitfield name="MINFILTER_LINEAR_BETWEEN" pos="27" type="boolean" />
 		<bitfield name="FORMAT" high="12" low="8" type="PIXEL_FORMAT" />
 		<bitfield name="WRAP_S_MIRRORED_REPEAT" pos="3" type="boolean" />
 		<bitfield name="WRAP_T_MIRRORED_REPEAT" pos="2" type="boolean" />
@@ -258,6 +258,7 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 		<bitfield name="WIDTH_LOG2" high="31" low="28" type="uint" />
 		<bitfield name="HEIGHT_LOG2" high="27" low="24" type="uint" />
 		<bitfield name="MAX_LOD" high="15" low="12" type="uint" />
+		<bitfield name="MIPMAP_DISABLE" pos="7" type="boolean" />
 		<bitfield name="NOT_POW2_DIMENSIONS" pos="6" type="boolean" />
 	</reg32>
 
