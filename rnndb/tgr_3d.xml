@@ -82,6 +82,28 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 	<value value="0x3" name="WR_SAFE" />
 </enum>
 
+<enum name="STENCIL_OP">
+	<value value="0" name="ZERO" />
+	<value value="1" name="KEEP" />
+	<value value="2" name="REPLACE" />
+	<value value="3" name="INCR" />
+	<value value="4" name="DECR" />
+	<value value="5" name="INVERT" />
+	<value value="6" name="INCR_WRAP" />
+	<value value="7" name="DECR_WRAP" />
+</enum>
+
+<enum name="STENCIL_FUNC">
+	<value value="0" name="NEVER" />
+	<value value="1" name="LESS" />
+	<value value="2" name="EQUAL" />
+	<value value="3" name="LESS_EQUAL" />
+	<value value="4" name="GREATER" />
+	<value value="5" name="NOTEQUAL" />
+	<value value="6" name="GREATER_EQUAL" />
+	<value value="7" name="ALWAYS" />
+</enum>
+
 <domain name="TGR3D" width="32">
 	<reg32 offset="0x000" name="INCR_SYNCPT">
 		<bitfield name="SYNCPT_INDEX" low="0" high="7" />
@@ -205,7 +227,18 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 	<reg32 offset="0x359" name="GUARDBAND_HEIGHT" type="float" />
 	<reg32 offset="0x35a" name="GUARDBAND_DEPTH" type="float" />
 
+	<reg32 offset="0x400" name="STENCIL_FRONT1">
+		<bitfield name="MASK" low="0" high="7" type="hex" />
+		<bitfield name="FUNC" low="8" high="10" type="STENCIL_FUNC" />
+	</reg32>
+
+	<reg32 offset="0x401" name="STENCIL_BACK1">
+		<bitfield name="MASK" low="0" high="7" type="hex" />
+		<bitfield name="FUNC" low="8" high="10" type="STENCIL_FUNC" />
+	</reg32>
+
 	<reg32 offset="0x402" name="STENCIL_PARAMS">
+		<bitfield name="STENCIL_WRITE_EARLY" pos="6" type="boolean" />
 		<bitfield name="STENCIL_TEST" pos="5" type="boolean" />
 	</reg32>
 
@@ -316,6 +349,20 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 	<reg32 offset="0xe22" name="FP_UPLOAD_INST_ID_COMMON" type="uint" />
 
 	<reg32 offset="0xe26" name="DITHER" />
+
+	<reg32 offset="0xe28" name="STENCIL_FRONT2">
+		<bitfield name="REF" low="17" high="25" type="hex" />
+		<bitfield name="OP_FAIL"  low="0" high="2" type="STENCIL_OP" />
+		<bitfield name="OP_ZFAIL" low="3" high="5" type="STENCIL_OP" />
+		<bitfield name="OP_ZPASS" low="6" high="8" type="STENCIL_OP" />
+	</reg32>
+
+	<reg32 offset="0xe29" name="STENCIL_BACK2">
+		<bitfield name="REF" low="17" high="25" type="hex" />
+		<bitfield name="OP_FAIL"  low="0" high="2" type="STENCIL_OP" />
+		<bitfield name="OP_ZFAIL" low="3" high="5" type="STENCIL_OP" />
+		<bitfield name="OP_ZPASS" low="6" high="8" type="STENCIL_OP" />
+	</reg32>
 </domain>
 
 </database>
