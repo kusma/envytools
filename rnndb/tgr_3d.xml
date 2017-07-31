@@ -262,6 +262,7 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 		<bitfield name="PSEQ_TO_DW_EXEC_NB" pos="6" high="31" type="uint" />
 	</reg32>
 
+	<reg32 offset="0x600" name="FP_UPLOAD_MFU_SCHED_ID" type="uint" />
 	<reg32 offset="0x601" name="FP_UPLOAD_MFU_SCHED">
 		<bitfield name="OFFSET" low="2" high="7" />
 		<bitfield name="COUNT" low="0" high="1" />
@@ -295,6 +296,7 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 		<bitfield name="NOT_POW2_DIMENSIONS" pos="6" type="boolean" />
 	</reg32>
 
+	<reg32 offset="0x800" name="FP_UPLOAD_ALU_SCHED_ID" type="uint" />
 	<reg32 offset="0x801" name="FP_UPLOAD_ALU_SCHED">
 		<bitfield name="OFFSET" low="2" high="7" />
 		<bitfield name="COUNT" low="0" high="1" />
