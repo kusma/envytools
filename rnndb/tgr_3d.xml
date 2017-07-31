@@ -179,10 +179,10 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 		<bitfield name="OFFSET" low="0" high="19" type="uint" />
 	</reg32>
 
-	<reg32 offset="0x205" name="VP_UPLOAD_INST_ID" />
+	<reg32 offset="0x205" name="VP_UPLOAD_INST_ID" type="uint" />
 	<reg32 offset="0x206" name="VP_UPLOAD_INST" />
 
-	<reg32 offset="0x207" name="VP_UPLOAD_CONST_ID" />
+	<reg32 offset="0x207" name="VP_UPLOAD_CONST_ID" type="uint" />
 	<reg32 offset="0x208" name="VP_UPLOAD_CONST" type="float" />
 
 	<reg64 offset="0x300" name="LINKER_INSTRUCTION" length="32" />
@@ -255,7 +255,7 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 
 	<reg32 offset="0x520" name="FP_PSEQ_ENGINE_INST" />
 
-	<reg32 offset="0x540" name="FP_PSEQ_UPLOAD_INST_ID" />
+	<reg32 offset="0x540" name="FP_PSEQ_UPLOAD_INST_ID" type="uint" />
 	<reg32 offset="0x541" name="FP_PSEQ_UPLOAD_INST" />
 
 	<reg32 offset="0x545" name="FP_PSEQ_QUAD_ID" />
