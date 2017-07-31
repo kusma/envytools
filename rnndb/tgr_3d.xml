@@ -179,10 +179,10 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 		<bitfield name="OFFSET" low="0" high="19" type="uint" />
 	</reg32>
 
-	<reg32 offset="0x205" name="VP_UPLOAD_INST_ID" />
+	<reg32 offset="0x205" name="VP_UPLOAD_INST_ID" type="uint" />
 	<reg32 offset="0x206" name="VP_UPLOAD_INST" />
 
-	<reg32 offset="0x207" name="VP_UPLOAD_CONST_ID" />
+	<reg32 offset="0x207" name="VP_UPLOAD_CONST_ID" type="uint" />
 	<reg32 offset="0x208" name="VP_UPLOAD_CONST" type="float" />
 
 	<reg64 offset="0x300" name="LINKER_INSTRUCTION" length="32" />
@@ -255,13 +255,16 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 
 	<reg32 offset="0x520" name="FP_PSEQ_ENGINE_INST" />
 
-	<reg32 offset="0x540" name="FP_PSEQ_UPLOAD_INST_ID" />
+	<reg32 offset="0x540" name="FP_PSEQ_UPLOAD_INST_ID" type="uint" />
 	<reg32 offset="0x541" name="FP_PSEQ_UPLOAD_INST" />
+
+	<reg32 offset="0x545" name="FP_PSEQ_QUAD_ID" />
 
 	<reg32 offset="0x546" name="FP_PSEQ_DW_CFG">
 		<bitfield name="PSEQ_TO_DW_EXEC_NB" pos="6" high="31" type="uint" />
 	</reg32>
 
+	<reg32 offset="0x600" name="FP_UPLOAD_MFU_SCHED_ID" type="uint" />
 	<reg32 offset="0x601" name="FP_UPLOAD_MFU_SCHED">
 		<bitfield name="OFFSET" low="2" high="7" />
 		<bitfield name="COUNT" low="0" high="1" />
@@ -295,6 +298,7 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 		<bitfield name="NOT_POW2_DIMENSIONS" pos="6" type="boolean" />
 	</reg32>
 
+	<reg32 offset="0x800" name="FP_UPLOAD_ALU_SCHED_ID" type="uint" />
 	<reg32 offset="0x801" name="FP_UPLOAD_ALU_SCHED">
 		<bitfield name="OFFSET" low="2" high="7" />
 		<bitfield name="COUNT" low="0" high="1" />
