@@ -332,6 +332,10 @@ xsi:schemaLocation="http://nouveau.freedesktop.org/ rules-ng.xsd">
 		<bitfield name="DEPTH_BUFFER" pos="16" type="boolean" />
 	</reg32>
 
+	<reg32 offset="0xa00" name="FDC_CONTROL">
+		<bitfield name="INVALIDATE" pos="0" type="boolean" />
+	</reg32>
+
 	<reg32 offset="0xe00" name="RT_PTR" length="16"/>
 	<reg32 offset="0xe10" name="RT_PARAMS" length="16">
 		<bitfield name="DITHER_ENABLE" pos="0" type="boolean" />
